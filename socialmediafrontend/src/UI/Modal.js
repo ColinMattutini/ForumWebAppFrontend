@@ -5,15 +5,17 @@ import ReactDOM from "react-dom";
 
 const ModalCard = (props) => {
     return(
-        <div className={classes.modal}>
+    
+    <div className={classes.modalChange}>       
             {props.children}
-        </div>
+    </div>
     )
 }
 
 const Backdrop = (props) => {
     return(
         <div className={classes.backdrop}>
+            
         </div>
         
     )
