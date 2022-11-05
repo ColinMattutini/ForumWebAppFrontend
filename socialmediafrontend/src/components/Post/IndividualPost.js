@@ -1,26 +1,30 @@
 import Modal from "../../UI/Modal";
 import React, { useState } from "react";
+import classes from "./IndividualPost.module.css";
+import Comment from "../Comment/Comment";
+import PostScore from "./PostScore";
 
 
 const IndividualPost = (props) => {
 
-    const [comment, setComment] = useState("");
-
-    const fetchComments = async () => {
-        const response = await fetch(
-            "http://localhost:8080/api/post/1/comments"
-        )
-
-        const data = await response.json();
-        setComment(data[0].comment);
-    }
+    
 
     return(
-        <Modal>
-            <h1>{props.postName}</h1>
-            <h2>{comment}</h2>
-            <button onClick={fetchComments}>Fetch comments</button>
-        </Modal>
+        <div className={classes.modalEdit}>
+            <Modal >
+                <div className={classes.postHeader}>
+                    {/* Username of  poster */}
+                    <h1>{props.postName}</h1>
+                    <h3>{props.postDescription}</h3>
+                    {/* post score on bottom right positive and negative */}
+                    <PostScore />
+                    
+                </div>
+                
+                <Comment postId={props.postId}/>
+            </Modal>
+        </div>
+      
     )
 
 } 
