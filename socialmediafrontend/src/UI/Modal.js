@@ -14,7 +14,7 @@ const ModalCard = (props) => {
 
 const Backdrop = (props) => {
     return(
-        <div className={classes.backdrop}>
+        <div className={classes.backdrop} onClick={props.hidePostModalHandler}>
             
         </div>
         
@@ -28,7 +28,7 @@ const Modal = (props) => {
     return(
         <Fragment>
             {ReactDOM.createPortal(<ModalCard>{props.children}</ModalCard>, portalElement)}
-            {ReactDOM.createPortal(<Backdrop />, portalElement)}
+            {ReactDOM.createPortal(<Backdrop hidePostModalHandler={props.hidePostModalHandler}/>, portalElement)}
         </Fragment>
     );
 
