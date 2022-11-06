@@ -28,9 +28,35 @@ const PostScore = (props) => {
         console.log(data);
     }
 
+    const reviewPostFetch = (reviewType) => {
+        const response = fetch(
+            "http://localhost:8080/api/user/cmmatt14@gmail.com/post/"+props.postId+"/review",
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    //userId: authCtx.UUID,
+                    review: reviewType
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbW1hdHQxNEBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsImV4cCI6MTY2Nzc1NzQ2NH0.A-50okYETu_BQ3SR9toqYKvmZ4VIrb41RNh_5D0rziQ'
+                },
+            }
+            
+        )
+    }
+
     const getScores = () => {
         fetchPositiveScore();
         fetchNegativeScore();
+    }
+
+    const positiveReviewPost = () => {
+        reviewPostFetch("POSITIVE");
+    }
+
+    const negativeReviewPost = () => {
+        reviewPostFetch("NEGATIVE");
     }
 
     return(
@@ -38,10 +64,12 @@ const PostScore = (props) => {
         <div className={classes.format}>
             Post Score Test
             <div className={classes.score}>
-                <div className={classes.positivescore}>
+                <div className={classes.positivescore} onClick={positiveReviewPost}>
                     {positiveScore} positive
                 </div>
-                {negativeScore} negative
+                <div onClick={negativeReviewPost}>
+                    {negativeScore} negative
+                </div>
             </div>
            
         </div>
