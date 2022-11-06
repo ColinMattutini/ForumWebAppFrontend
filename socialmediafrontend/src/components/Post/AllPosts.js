@@ -40,6 +40,7 @@ const Post = () => {
     const postList = posts.map((post) =>
         <PostList 
             key={post.postId}
+            postId={post.postId}
             postTopic={post.postTopic}
             postUser={post.postUser}
             postName={post.postName}
