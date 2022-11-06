@@ -1,5 +1,13 @@
 .cardEdit{
     min-width: 60%;
     margin:auto;
+    max-width: 60%;
     
+}
+
+@media screen and (max-width: 540px) {
+    .cardEdit {
+        min-width: 100%;
+        
+    }
 }
