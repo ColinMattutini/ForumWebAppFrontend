@@ -1,0 +1,15 @@
+.format {
+    display:flex;
+    
+}
+
+.format .score{
+    margin-left: auto;
+    padding-right: 48px;
+    display: flex;
+    
+}
+
+.format .positivescore{
+    padding-right: 20px;
+}
