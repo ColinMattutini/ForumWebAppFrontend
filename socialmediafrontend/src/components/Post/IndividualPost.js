@@ -1,5 +1,5 @@
 import Modal from "../../UI/Modal";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./IndividualPost.module.css";
 import Comment from "../Comment/Comment";
 import PostScore from "./PostScore";
@@ -8,7 +8,17 @@ import PostScore from "./PostScore";
 const IndividualPost = (props) => {
 
     
-
+    useEffect(() => {
+        function handleEscapeKey(e) {
+          if (e.code === 'Escape') {
+            props.hidePostModalHandler();
+          }
+        }
+      
+        document.addEventListener('keydown', handleEscapeKey)
+        return () => document.removeEventListener('keydown', handleEscapeKey)
+      }, [])
+    
     return(
         
             <Modal hidePostModalHandler={props.hidePostModalHandler}>
