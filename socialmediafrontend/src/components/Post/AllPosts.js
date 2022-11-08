@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../UI/Card";
 import classes from './AllPosts.module.css';
 import PostList from "./PostList";
 
-const Post = () => {
+const AllPosts = (props) => {
 
     const [posts, setPosts] = useState([]);
     const [postName, setPostName] = useState("");
@@ -11,7 +11,7 @@ const Post = () => {
         try
             {
                 const response = await fetch (
-                "http://localhost:8080/api/topic/Cooking/posts",
+                "http://localhost:8080/api/topic/"+props.topicName+"/posts",
                 
             )
             const data = await response.json();
@@ -48,8 +48,9 @@ const Post = () => {
         />
         );
        
-            
-    
+    useEffect(() => {
+        fetchAllPosts();
+    }, [])
 
     const printPosts = () => {
         console.log(posts);
@@ -59,8 +60,8 @@ const Post = () => {
     return(
         <div className={classes.cardEdit}>
             <Card>
-                <h1>CARD HOLDER FOR POSTS</h1>
                 {postList}
+            
                 <button onClick={fetchAllPosts}>FETCH</button>
                 <button onClick={printPosts}>PRINT POSTS</button>
             </Card>
@@ -68,4 +69,4 @@ const Post = () => {
     )
 }
 
-export default Post;
+export default AllPosts;

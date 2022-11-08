@@ -2,8 +2,9 @@
     min-width: 60%;
     margin:auto;
     max-width: 60%;
-    
+    padding-top: 10vh;
 }
+
 
 @media screen and (max-width: 540px) {
     .cardEdit {
@@ -11,3 +12,4 @@
         
     }
 }
+
