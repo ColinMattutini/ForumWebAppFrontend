@@ -4,7 +4,8 @@
     left: 0;
     width: 100%;
     height: 5rem;
-    background-color: #f0efef;
+    /* background-color: #f0efef; */
+    background-color: #E5EAF5;
     color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
