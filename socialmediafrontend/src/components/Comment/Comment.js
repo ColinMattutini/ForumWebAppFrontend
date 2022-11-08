@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CommentList from "./CommentList";
 
 const Comment = (props) => {
 
     const [comment, setComment] = useState([]);
+    const [commentCounter, setCommentCounter] = useState(0);
 
     const fetchComments = async () => {
         const response = await fetch(
@@ -21,6 +22,9 @@ const Comment = (props) => {
             })
         }
         setComment(loadedComments);
+        props.commentCounterHandler(loadedComments.length);
+        console.log(loadedComments.length);
+        
     }
 
     const commentList = comment.map((comments) =>
@@ -32,6 +36,12 @@ const Comment = (props) => {
             
         />
         );
+
+    useEffect(() => {
+        fetchComments();
+        
+        
+    },[])
 
     return(
         <div>
