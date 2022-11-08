@@ -48,9 +48,9 @@ const AllPosts = (props) => {
         />
         );
        
-    useEffect(() => {
-        fetchAllPosts();
-    }, [])
+    // useEffect(() => {
+    //     fetchAllPosts();
+    // }, [])
 
     const printPosts = () => {
         console.log(posts);
