@@ -1,12 +1,30 @@
-import React, { useEffect, useState } from "react";
-import Card from "../../UI/Card";
+import React, { Fragment, useContext, useEffect, useState } from "react";
+import AuthContext from "../../Context/userauth";
+import Login from "../../UserAuthentication/Login";
+
 import classes from './AllPosts.module.css';
+import CreatePost from "./CreatePost/CreatePost";
 import PostList from "./PostList";
 
 const AllPosts = (props) => {
 
+    const authCtx = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
-    const [postName, setPostName] = useState("");
+    const [showCreatePostModal, setShowCreatePostModal] = useState(false);
+    
+
+    const showCreatePostHandler = () => {
+        if(authCtx.isLoggedIn === true){
+            setShowCreatePostModal(true);
+        } else{
+            authCtx.showLoginModal();
+        }
+    }
+
+    const hideCreatePostHandler = () => {
+        setShowCreatePostModal(false);
+    }
+
     const fetchAllPosts = async () => {
         try
             {
@@ -35,7 +53,7 @@ const AllPosts = (props) => {
             {
                 throw new Error("ERROR RUNNING FETCH");
             }
-    }
+        }
 
     const postList = posts.map((post) =>
         <PostList 
@@ -48,24 +66,24 @@ const AllPosts = (props) => {
         />
         );
        
-    // useEffect(() => {
-    //     fetchAllPosts();
-    // }, [])
-
-    const printPosts = () => {
-        console.log(posts);
-        console.log(postName);
-    }
+    useEffect(() => {
+        fetchAllPosts();
+        
+            if(localStorage.getItem("token") !== null){
+                authCtx.login();
+            }
+    }, [])
 
     return(
+        <Fragment>
+        {authCtx.loginModal && <Login />}
+        {showCreatePostModal && <CreatePost hideCreatePostHandler={hideCreatePostHandler}/>}
         <div className={classes.cardEdit}>
-            <Card>
+        <button onClick={showCreatePostHandler}>Create Post</button>
                 {postList}
-            
-                <button onClick={fetchAllPosts}>FETCH</button>
-                <button onClick={printPosts}>PRINT POSTS</button>
-            </Card>
+           
         </div>
+        </Fragment>
     )
 }
 
