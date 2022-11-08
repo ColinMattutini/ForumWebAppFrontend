@@ -30,8 +30,10 @@ const PostList = (props) => {
             />}
             <div className={classes.cardSpacing}>
                 <Card onClick={showPostModalHandler}>
-                    <p>{props.postUser}</p>
-                    <p>{props.postTopic}</p>
+                    <div className={classes.postHeader}>
+                        <p>Posted By: {props.postUser}</p>
+                        <p>Topic: {props.postTopic}</p>
+                    </div>
                     <h1>{props.postName}</h1>
                     <h3>{props.postDescription}</h3>
                 </Card>

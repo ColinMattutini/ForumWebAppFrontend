@@ -1,8 +1,14 @@
 .cardEdit{
-    min-width: 60%;
+    min-width: 50%;
     margin:auto;
-    max-width: 60%;
+    max-width: 50%;
     padding-top: 10vh;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
 }
 
 
