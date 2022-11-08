@@ -34,7 +34,6 @@ const PostScore = (props) => {
             {
                 method: "POST",
                 body: JSON.stringify({
-                    //userId: authCtx.UUID,
                     review: reviewType
                 }),
                 headers: {

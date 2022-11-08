@@ -1,13 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Card from '../../UI/Card';
-import Modal from '../../UI/Modal';
 import IndividualPost from './IndividualPost';
+import classes from "./PostList.module.css";
 
 const PostList = (props) => {
 
     const [showPostModal, setShowPostModal] = useState(false);
-
-    
 
     const showPostModalHandler = () => {
         setShowPostModal(true);
@@ -30,12 +28,14 @@ const PostList = (props) => {
                 postDescription = {props.postDescription}
                 postId = {props.postId}
             />}
-            <Card onClick={showPostModalHandler}>
-                <p>{props.postUser}</p>
-                <p>{props.postTopic}</p>
-                <h1>{props.postName}</h1>
-                <h3>{props.postDescription}</h3>
-            </Card>
+            <div className={classes.cardSpacing}>
+                <Card onClick={showPostModalHandler}>
+                    <p>{props.postUser}</p>
+                    <p>{props.postTopic}</p>
+                    <h1>{props.postName}</h1>
+                    <h3>{props.postDescription}</h3>
+                </Card>
+            </div>
         </Fragment>
 
     )
