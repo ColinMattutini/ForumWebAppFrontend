@@ -1,7 +1,7 @@
 
 
 .postHeader{
-    background-color: rgb(43, 142, 230);
+    /* background-color: rgb(43, 142, 230); */
     padding: 0;
     padding-bottom: 24px;
     
@@ -13,3 +13,22 @@
     margin-left: auto;
     max-width: 30px;
 }
+
+.footeralign{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footeralign .scorealign{
+  
+    padding-top: 23px;
+
+}
+
+.nocommentalign{
+    margin: auto;
+    text-align: center;
+}
+
+
+

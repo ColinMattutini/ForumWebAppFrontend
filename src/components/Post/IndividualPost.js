@@ -40,13 +40,21 @@ const IndividualPost = (props) => {
                     {/* Username of  poster */}
                     <h1>{props.postName}</h1>
                     <h3>{props.postDescription}</h3>
-                    <h2>{commentCount} comments</h2>
-                    {/* post score on bottom right positive and negative */}
-                    <PostScore postId={props.postId}/>
+                    <div className={classes.footeralign}>
+                      <div className={classes.commentcount}>
+                      <h2>{commentCount} comments</h2>
+                      </div>
+                      <div className={classes.scorealign}>
+                        <PostScore postId={props.postId}/>
+                      </div>
+                    </div>
                     
                     
                 </div>
-                {noCommentDisplay && <h1>No Comments Yet!</h1>}
+                <hr></hr>
+                <div className={classes.nocommentalign}>
+                  {noCommentDisplay && <h1>No Comments Yet!</h1>}
+                </div>
                 <Comment 
                   postId={props.postId}
                   commentCounterHandler={commentCounterHandler}
