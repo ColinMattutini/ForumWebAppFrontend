@@ -10,6 +10,28 @@
     text-overflow: ellipsis;
     
 }
+.createPostButton{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+}
+
+.createPostButton button{
+    margin-left: auto;
+    width: 30%;
+    height: 4vh;
+    cursor: pointer;
+    border: 1px solid #74a5d3;
+    background-color: #1037e7;
+    color: white;
+    border-radius: 20px;
+}
+
+.createPostButton button:hover,
+.createPostButton button:active{
+    background-color: #538df8;
+    border-color: #510674;
+}
 
 
 @media screen and (max-width: 540px) {

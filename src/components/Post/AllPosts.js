@@ -79,7 +79,9 @@ const AllPosts = (props) => {
         {authCtx.loginModal && <Login />}
         {showCreatePostModal && <CreatePost hideCreatePostHandler={hideCreatePostHandler}/>}
         <div className={classes.cardEdit}>
-        <button onClick={showCreatePostHandler}>Create Post</button>
+        <div className={classes.createPostButton}>
+            <button onClick={showCreatePostHandler}>Create Post</button>
+        </div>
                 {postList}
            
         </div>
