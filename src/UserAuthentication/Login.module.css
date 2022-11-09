@@ -1,0 +1,89 @@
+.modalEdit{
+    max-width: 40%;
+}
+
+.login{
+    /* background-color: #fafafa;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25); */
+    /* display: block; */
+    margin: auto;
+    
+    padding: 1rem;
+    width: 35rem;
+    max-width:100%;
+    border-radius: 12px;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.signupControl h1{
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 24px;
+}
+
+.signupControl label{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.signupControl input {
+    
+    font: inherit;
+    padding: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    display: block;
+    margin: auto;
+    margin-bottom: 1.5rem;
+
+    /* max-width: 100%; */
+    
+  }
+
+.signupControl button{
+    font: inherit;
+    font-size: large;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    width: 20rem;
+    border: 1px solid #74a5d3;
+    background-color: #538df8;
+    color: white;
+    border-radius: 20px;
+    
+}
+
+.signupControl button:hover,
+.signupControl button:active{
+    background-color: #1037e7;
+    border-color: #510674;
+}
+
+.signupControl p{
+    margin-top: 2.5rem;
+    cursor: pointer;
+    text-decoration-line: underline;
+    margin-bottom: auto;
+}
+
+.closeButton{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    max-width: 30px;
+    
+}
+
+
+
+@media screen and (max-width: 540px) {
+    .login {
+        width: 100%;
+        left: 7%;
+    }
+}
