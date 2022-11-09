@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./PostScore.module.css";
 
 const PostScore = (props) => {
 
     const [positiveScore, setPositiveScore] = useState(0);
     const [negativeScore, setNegativeScore] = useState(0);
+    const [isClicked, setIsClicked] = useState(0);
+  
 
     const fetchPositiveScore = async() => {
         const response = await fetch(
@@ -13,8 +15,8 @@ const PostScore = (props) => {
         )
         const data = await response.json();
         setPositiveScore(data);
-        console.log(positiveScore);
-        console.log(data);
+        
+        
     }
 
     const fetchNegativeScore = async() => {
@@ -24,13 +26,14 @@ const PostScore = (props) => {
         )
         const data = await response.json();
         setNegativeScore(data);
-        console.log(negativeScore);
-        console.log(data);
+       
+        
+        
     }
 
-    const reviewPostFetch = (reviewType) => {
-        const response = fetch(
-            "http://localhost:8080/api/user/cmmatt14@gmail.com/post/"+props.postId+"/review",
+    const reviewPostFetch = async (reviewType) => {
+        const response = await fetch(
+            "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/post/"+props.postId+"/review",
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -38,42 +41,49 @@ const PostScore = (props) => {
                 }),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbW1hdHQxNEBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsImV4cCI6MTY2Nzc1NzQ2NH0.A-50okYETu_BQ3SR9toqYKvmZ4VIrb41RNh_5D0rziQ'
+                    'Authorization': 'Bearer '+localStorage.getItem("token")
                 },
             }
             
         )
+        setIsClicked(isClicked+1);
     }
+    useEffect(() => {
+        getScores();
+    }, [isClicked])
 
     const getScores = () => {
         fetchPositiveScore();
         fetchNegativeScore();
+        console.log("fetching scores");
     }
 
     const positiveReviewPost = () => {
+        
         reviewPostFetch("POSITIVE");
+    
     }
-
     const negativeReviewPost = () => {
+       
         reviewPostFetch("NEGATIVE");
+    
     }
 
     return(
         <div >
         <div className={classes.format}>
-            Post Score Test
+           
             <div className={classes.score}>
                 <div className={classes.positivescore} onClick={positiveReviewPost}>
-                    {positiveScore} positive
+                    {positiveScore} positive ↑
                 </div>
-                <div onClick={negativeReviewPost}>
-                    {negativeScore} negative
+                <div className={classes.negativescore} onClick={negativeReviewPost}>
+                    {negativeScore} negative ↓
                 </div>
             </div>
            
         </div>
         
-        <button onClick={getScores}>Fetch Score</button>
         </div>
     )
 

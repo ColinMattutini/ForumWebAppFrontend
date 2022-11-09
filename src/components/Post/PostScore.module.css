@@ -12,4 +12,12 @@
 
 .format .positivescore{
     padding-right: 20px;
+    font-size: large;
+    cursor: pointer;
 }
+
+.format .negativescore{
+    font-size: large;
+    cursor: pointer;
+}
+
