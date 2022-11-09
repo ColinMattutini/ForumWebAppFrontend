@@ -1,8 +1,9 @@
-import React, { useContext, useRef } from "react";
+import React, { Fragment, useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../Context/userauth";
 import LoginModal from "../UI/LoginModal";
 import classes from "./Login.module.css";
+import SignUpForm from "./SignupForm";
 
 const Login = (props) => {
 
@@ -69,12 +70,11 @@ const Login = (props) => {
     }
 
     const switchToSignup = () => {
-        authCtx.hideLoginModal();
         props.showSignUpModalHandler();
+        authCtx.hideLoginModal();
     }
 
     return(
-    
     <LoginModal>
         <div className={classes.closeButton}>
             <button onClick={authCtx.hideLoginModal}>X</button>
@@ -101,7 +101,8 @@ const Login = (props) => {
                 
             </form>
             
-            </LoginModal>
+        </LoginModal>
+   
     
     )
 }

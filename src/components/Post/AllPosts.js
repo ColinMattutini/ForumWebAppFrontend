@@ -76,7 +76,7 @@ const AllPosts = (props) => {
 
     return(
         <Fragment>
-        {authCtx.loginModal && <Login />}
+        
         {showCreatePostModal && <CreatePost hideCreatePostHandler={hideCreatePostHandler}/>}
         <div className={classes.cardEdit}>
         <div className={classes.createPostButton}>

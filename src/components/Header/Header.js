@@ -11,16 +11,7 @@ const Header = () => {
     const navigate = useNavigate();
     const authCtx = useContext(AuthContext);
 
-    // const [showLogin, setShowLogin] = useState(false);
     const [showSignUp, setShowSignUp] = useState(false);
-
-    // const showLoginModalHandler = () => {
-    //     setShowLogin(true);
-    // }
-
-    // const hideLoginModalHandler = () => {
-    //     setShowLogin(false);
-    // }
 
     const showSignUpModalHandler = () => {
         setShowSignUp(true);
