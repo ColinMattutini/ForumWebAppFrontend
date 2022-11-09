@@ -44,10 +44,15 @@ const Header = () => {
         {showSignUp && <SignUpForm hideSignupModalHandler={hideSignupModalHandler} />}
         <header className={classes.header}>
                 <h1 onClick={homepageNav}>Hobby Forum</h1>
+                
                 <SearchBar />
-                <div>
-                {!authCtx.isLoggedIn && <button onClick={showSignUpModalHandler}>Sign Up</button>}
-                {!authCtx.isLoggedIn && <button onClick={authCtx.showLoginModal}>Log in</button>}
+                
+                
+                    <div className={classes.buttonSignup}>
+                        {!authCtx.isLoggedIn && <button onClick={showSignUpModalHandler}>Sign Up</button>}
+                    </div>
+                    <div className={classes.buttonLogin}>
+                    {!authCtx.isLoggedIn && <button onClick={authCtx.showLoginModal}>Log in</button>}
                 {authCtx.isLoggedIn && <button onClick={authCtx.logout}>Logout</button>}
                 </div>
         </header>

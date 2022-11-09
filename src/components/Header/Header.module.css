@@ -14,6 +14,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 10;
   }
+
   .holder{
     display: flex;
     justify-content: space-between;
@@ -28,4 +29,39 @@
 
 .header h1:hover{
     cursor: pointer;
+}
+
+.buttonLogin{
+  display: flex;
+  width: 10%;
+  padding-left: 8px;
+}
+
+.buttonSignup{
+ display: flex;
+ width: 10%;
+}
+
+.buttonLogin button{
+    align-content: center;
+    margin-left: auto;
+    width: 100%;
+    height: 4vh;
+    cursor: pointer;
+    border: 1px solid #74a5d3;
+    background-color: #1037e7;
+    color: white;
+    border-radius: 20px;
+}
+
+.buttonSignup button{
+  align-content: center;
+  margin-left: auto;
+  width: 90%;
+  height: 4vh;
+  cursor: pointer;
+  border: 1px solid #74a5d3;
+  background-color: #1037e7;
+  color: white;
+  border-radius: 20px;
 }
