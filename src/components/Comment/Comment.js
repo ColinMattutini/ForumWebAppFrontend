@@ -5,11 +5,11 @@ import CreateComment from "./CreateComment";
 const Comment = (props) => {
 
     const [comment, setComment] = useState([]);
-    const [commentCounter, setCommentCounter] = useState(0);
+    const [newCommentCheck, setNewCommentCheck] = useState(0);
 
     const fetchComments = async () => {
         const response = await fetch(
-            "http://localhost:8080/api/post/"+ props.postId +"/comments"
+            "http://localhost:8080/api/post/"+props.postId+"/comments"
         )
 
         const data = await response.json();
@@ -28,6 +28,11 @@ const Comment = (props) => {
         
     }
 
+    const newComment = () => {
+        let i = 1;
+        setNewCommentCheck(i);
+    }
+
     const commentList = comment.map((comments) =>
         <CommentList
             key={comments.commentId}
@@ -41,12 +46,11 @@ const Comment = (props) => {
     useEffect(() => {
         fetchComments();
         
-        
-    },[])
+    }, [newCommentCheck])
 
     return(
         <div>
-            <CreateComment postId = {props.postId}/>
+            <CreateComment postId = {props.postId} newComment={newComment}/>
             {/* commenter name */}
             {commentList}
             

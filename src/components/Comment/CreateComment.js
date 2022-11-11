@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import AuthContext from "../../Context/userauth";
 import classes from "./CreateComment.module.css";
 
@@ -8,8 +8,8 @@ const CreateComment = (props) => {
     const formRef = useRef();
     const authCtx = useContext(AuthContext);
 
-    const postCommentFetch = (comment) => {
-        fetch(
+    const postCommentFetch = async(comment) => {
+        const response = await fetch(
             "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/post/"+props.postId+"/comment/newcomment",
             {
                 method: "POST",
@@ -22,15 +22,19 @@ const CreateComment = (props) => {
                 }
             }
         )
+        if(response.ok){
+            props.newComment();
+        }
     }
 
     const submitComment = e => {
         e.preventDefault();
 
         if(commentText.current.value.replace(' ', '') !== ''){
-            // postCommentFetch(commentText.current.value);
+            postCommentFetch(commentText.current.value);
         }
         authCtx.commentTimeoutHandler();
+        
         formRef.current.reset();
         console.log("Comment Timer");
     }
