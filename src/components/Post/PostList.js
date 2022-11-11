@@ -31,11 +31,13 @@ const PostList = (props) => {
             <div className={classes.cardSpacing}>
                 <Card onClick={showPostModalHandler}>
                     <div className={classes.postHeader}>
-                        <p>Posted By: {props.postUser}</p>
+                        <p>By: {props.postUser}</p>
                         <p>Topic: {props.postTopic}</p>
+                        <p>{props.postPositiveScore} spaceer {props.postNegativeScore}</p>
                     </div>
                     <h1>{props.postName}</h1>
                     <h3>{props.postDescription}</h3>
+                    
                 </Card>
             </div>
         </Fragment>

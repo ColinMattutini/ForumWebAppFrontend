@@ -21,3 +21,10 @@
 .postHeader p{
     padding-left: 20px;
 }
+
+@media screen and (max-width: 540px) {
+    .postHeader {
+        font-size: small;
+        
+    }
+}
