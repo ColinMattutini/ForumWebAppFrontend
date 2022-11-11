@@ -10,7 +10,7 @@ const CreateComment = (props) => {
 
     const postCommentFetch = async(comment) => {
         const response = await fetch(
-            "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/post/"+props.postId+"/comment/newcomment",
+            "https://hobby-forum.herokuapp.com/api/user/"+localStorage.getItem("email")+"/post/"+props.postId+"/comment/newcomment",
             {
                 method: "POST",
                 body: JSON.stringify({

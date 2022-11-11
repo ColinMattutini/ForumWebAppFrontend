@@ -12,7 +12,7 @@ const SearchBar = () => {
 
   const fetchTopics = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/topic",
+      "https://hobby-forum.herokuapp.com/api/topic",
 
     )
     const data = await response.json();

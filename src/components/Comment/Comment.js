@@ -9,7 +9,7 @@ const Comment = (props) => {
 
     const fetchComments = async () => {
         const response = await fetch(
-            "http://localhost:8080/api/post/"+props.postId+"/comments"
+            "https://hobby-forum.herokuapp.com/api/post/"+props.postId+"/comments"
         )
 
         const data = await response.json();

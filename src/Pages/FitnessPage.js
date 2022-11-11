@@ -1,10 +1,15 @@
+import { Fragment } from "react";
 import AllPosts from "../components/Post/AllPosts";
+import CreatePost from "../components/Post/CreatePost/CreatePost";
 
 
 const FitnessPage = () => {
 
     return(
-        <AllPosts topicName={"Fitness"}/>
+        <Fragment>
+            
+            <AllPosts topicName={"Fitness"}/>
+        </Fragment>
     )
 }
 

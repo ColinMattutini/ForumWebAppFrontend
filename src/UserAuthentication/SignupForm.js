@@ -17,8 +17,8 @@ const SignUpForm = (props) => {
     const lastName = useRef();
 
 
-    let validPassword = (password === reenterPassword);
-    let validPasswordLength = (password.length > 7);
+    // let validPassword = (password.current.value === reenterPassword.current.value);
+    // let validPasswordLength = (password.current.value.length > 7);
 
     
 
@@ -32,7 +32,7 @@ const SignUpForm = (props) => {
 
     const signUpFetch = (email, username, password, firstName, lastName) => {
         fetch(
-            'http://localhost:8080/api/user/save',
+            'https://hobby-forum.herokuapp.com/api/user/signup',
             {
                 method: 'POST',
                 body: JSON.stringify({
@@ -78,15 +78,15 @@ const SignUpForm = (props) => {
 
     const submitSignUpHandler = (event) => {
         event.preventDefault();
-        if(validPassword){
-            if(validPasswordLength){
-            signUpFetch(email.current.value, username.current.value, password.current.value, firstName.current.value, lastName.current.value);
-            } else
-                {alert('Password Must Be A Minimum of 8 Characters!')}
-            // props.hideSignUpForm();
-        } else{
-            alert('Passwords Do Not Match!');
-        };
+        // if(validPassword){
+        //     if(validPasswordLength){
+                signUpFetch(email.current.value, username.current.value, password.current.value, firstName.current.value, lastName.current.value);
+        //     } else
+        //         {alert('Password Must Be A Minimum of 8 Characters!')}
+        //     // props.hideSignUpForm();
+        // } else{
+        //     alert('Passwords Do Not Match!');
+        // };
     };
 
     const switchToLogin = () => {
@@ -104,26 +104,33 @@ const SignUpForm = (props) => {
             <button onClick={props.hideSignupModalHandler}>X</button>
         </div>
 
-        <form className={classes.login}>
+        <form onSubmit={submitSignUpHandler} className={classes.login}>
             <div className={classes.signupControl}>
             <h1>Sign-Up</h1>
             <input placeholder="First Name" 
                 ref={firstName}
+                required
             />
             <input placeholder="Last Name" 
                 ref={lastName}
+                required
             />
             <input  placeholder="Email"
+                type='email'
                 ref={email}
+                required
             />
             <input placeholder="Username"
                 ref={username}
+                required
             />
             <input type='password' placeholder="Password: Enter 8 characters or more"
                 ref={password}
+                required
             />
             <input type='password' placeholder="Re-Enter Password"
                 ref={reenterPassword}
+                required
             />
             <button>Sign-Up</button>
             <p onClick={switchToLogin}>Already a Member? Click Here to Login</p>

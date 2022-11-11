@@ -10,7 +10,7 @@ const PostScore = (props) => {
 
     const fetchPositiveScore = async() => {
         const response = await fetch(
-            "http://localhost:8080/api/post/"+props.postId+"/positiveScore",
+            "https://hobby-forum.herokuapp.com/api/post/"+props.postId+"/positiveScore",
 
         )
         const data = await response.json();
@@ -21,7 +21,7 @@ const PostScore = (props) => {
 
     const fetchNegativeScore = async() => {
         const response = await fetch(
-            "http://localhost:8080/api/post/"+props.postId+"/negativeScore",
+            "https://hobby-forum.herokuapp.com/api/post/"+props.postId+"/negativeScore",
 
         )
         const data = await response.json();
@@ -33,7 +33,7 @@ const PostScore = (props) => {
 
     const reviewPostFetch = async (reviewType) => {
         const response = await fetch(
-            "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/post/"+props.postId+"/review",
+            "https://hobby-forum.herokuapp.com/api/user/"+localStorage.getItem("email")+"/post/"+props.postId+"/review",
             {
                 method: "POST",
                 body: JSON.stringify({

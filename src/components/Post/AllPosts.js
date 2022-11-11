@@ -34,7 +34,7 @@ const AllPosts = (props) => {
         try
             {
                 const response = await fetch (
-                "http://localhost:8080/api/topic/"+props.topicName+"/posts",
+                "https://hobby-forum.herokuapp.com/api/topic/"+props.topicName+"/posts",
                 
             )
             const data = await response.json();

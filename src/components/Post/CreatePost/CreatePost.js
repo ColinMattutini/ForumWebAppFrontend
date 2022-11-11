@@ -19,7 +19,7 @@ const CreatePost = (props) => {
 
     const submitPostFetch = async (postName, postDescription) => {
         const response = await fetch(
-            "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/topic/"+topicChoice+"/post/savepost",
+            "https://hobby-forum.herokuapp.com/api/user/"+localStorage.getItem("email")+"/topic/"+topicChoice+"/post/savepost",
             {
                 method:"POST",
                 body: JSON.stringify({
