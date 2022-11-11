@@ -41,3 +41,20 @@
     background-color: #538df8;
     border-color: #510674;
 }
+
+/* .tooltip {
+    position: relative;
+  }
+  .tooltip .tooltipcontent {
+    display: none;
+    position: relative;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    background-color: rgb(189, 183, 183);
+    padding: .5em;
+    width: 25%;
+  }
+  .tooltip:hover .tooltipcontent {
+    display: block;
+  } */
