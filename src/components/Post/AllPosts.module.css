@@ -1,6 +1,7 @@
 .cardEdit{
     min-width: 50%;
-    margin:auto;
+    margin-right: auto;
+    margin-left: auto;
     max-width: 50%;
     padding-top: 10vh;
     display: -webkit-box;

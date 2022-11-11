@@ -8,7 +8,6 @@ import AuthContext from "../../../Context/userauth";
 const CreatePost = (props) => {
     
     const [topicChoice, setTopicChoice] = useState("");
-    const [timeoutPost, setTimeoutPost] = useState(false);
     const postNameRef = useRef();
     const postDescriptionRef = useRef();
 
@@ -19,7 +18,7 @@ const CreatePost = (props) => {
     }
 
     const submitPostFetch = async (postName, postDescription) => {
-        const response = fetch(
+        const response = await fetch(
             "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/topic/"+topicChoice+"/post/savepost",
             {
                 method:"POST",
@@ -32,6 +31,10 @@ const CreatePost = (props) => {
                 }
             }
         )
+        if(response.ok){
+            props.newPostStateHandler();
+        }
+        
     }
 
     // const postTimeoutHandler = () => {

@@ -11,7 +11,7 @@ const AllPosts = (props) => {
     const authCtx = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [showCreatePostModal, setShowCreatePostModal] = useState(false);
-    
+    const [newPostState, setNewPostState] = useState(0);
 
     const showCreatePostHandler = () => {
         if(authCtx.isLoggedIn === true){
@@ -23,6 +23,11 @@ const AllPosts = (props) => {
 
     const hideCreatePostHandler = () => {
         setShowCreatePostModal(false);
+    }
+
+    const newPostStateHandler = () => {
+        let i = 1;
+        setNewPostState(i);
     }
 
     const fetchAllPosts = async () => {
@@ -42,7 +47,9 @@ const AllPosts = (props) => {
                     postName: data[postKey].postName,
                     postDescription: data[postKey].postDescription,
                     postUser: data[postKey].appUser.username,
-                    postTopic: data[postKey].topic.topicName
+                    postTopic: data[postKey].topic.topicName,
+                    postPositiveScore: data[postKey].postTotalScore.positiveScoreTotal,
+                    postNegativeScore: data[postKey].postTotalScore.negativeScoreTotal
                 })
             }
 
@@ -63,6 +70,8 @@ const AllPosts = (props) => {
             postUser={post.postUser}
             postName={post.postName}
             postDescription={post.postDescription}
+            postPositiveScore={post.postPositiveScore}
+            postNegativeScore={post.postNegativeScore}
         />
         );
        
@@ -72,12 +81,12 @@ const AllPosts = (props) => {
             if(localStorage.getItem("token") !== null){
                 authCtx.login();
             }
-    }, [])
+    }, [newPostState])
 
     return(
         <Fragment>
         
-        {showCreatePostModal && <CreatePost hideCreatePostHandler={hideCreatePostHandler}/>}
+        {showCreatePostModal && <CreatePost hideCreatePostHandler={hideCreatePostHandler} newPostStateHandler={newPostStateHandler}/>}
         <div className={classes.cardEdit}>
         <div className={classes.createPostButton}>
             <button onClick={showCreatePostHandler}>Create Post</button>
