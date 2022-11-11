@@ -1,0 +1,31 @@
+.createcomment{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.createcomment .submitButton{
+    display: flex;
+    margin-left: auto;
+    width: 25%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.submitButton button{
+    height: 3vh;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #74a5d3;
+    background-color: #1037e7;
+    color: white;
+    border-radius: 20px;
+}
+
+
+.submitButton button:hover,
+.submitButton button:active{
+    background-color: #538df8;
+    border-color: #510674;
+}
