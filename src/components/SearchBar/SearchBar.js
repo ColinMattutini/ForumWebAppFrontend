@@ -1,26 +1,47 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./SearchBar.module.css";
 
 const SearchBar = () => {
 
-const [search, setSearch] = useState("");
-const inputRef = useRef();
-const navigate = useNavigate();
-const placeholder = ("Search: \"Cooking\"");
-const topics = [
-    {name: "Cooking"},
-    {name: "Fitness"},
-    {name: "Sports"},
-    {name: "Knitting"},
-    {name: "Programming"}
+  const [search, setSearch] = useState("");
+  const [topics, setTopics] = useState([]);
+  const inputRef = useRef();
+  const navigate = useNavigate();
+  const placeholder = ("Search: \"Painting\"");
 
-]
+  const fetchTopics = async () => {
+    const response = await fetch(
+      "http://localhost:8080/api/topic",
 
-const onChangeSearch = e => {
-    setSearch(e.target.value);
-}
+    )
+    const data = await response.json();
+    const loadedTopics = [];
+    for(const topicKey in data){
+      loadedTopics.push({
+          key: data[topicKey].topicId,
+          topicId: data[topicKey].topicId,
+          name: data[topicKey].topicName,
+      })
+    }
+    setTopics(loadedTopics);
+    localStorage.setItem("Topics", JSON.stringify(loadedTopics));
+    console.log("Topics fetched");
+    }
 
+  const onChangeSearch = e => {
+      setSearch(e.target.value);
+  }
+
+  useEffect(() => {
+    
+    if(localStorage.getItem("Topics") === null){
+       fetchTopics();
+     } else{
+      setTopics(JSON.parse(localStorage.getItem("Topics")));
+     }
+    
+  }, [])
 
 const topicSearch = topics.filter(topic => {
     if (search === "") {
@@ -29,10 +50,13 @@ const topicSearch = topics.filter(topic => {
       return topic;
     }
   }).map((topic) => (
-    <div className={classes.button} key={topic.id}>
+    <div className={classes.button} key={topic.topicId}>
       <button onClick={() => {navigate(inputRef.current.value = topic.name); setSearch("")}}>{topic.name}</button>
     </div>
   ));
+
+ 
+
 
 return(
     <Fragment>

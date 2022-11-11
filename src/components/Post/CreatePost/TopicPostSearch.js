@@ -5,16 +5,12 @@ const TopicPostSearch = (props) => {
 
 const [search, setSearch] = useState("");
 const [startSearch, setStartSearch] = useState(true);
+
+const topics = JSON.parse(localStorage.getItem("Topics"));
+
 const inputRef = useRef();
 const placeholder = ("Search: \"Cooking\"");
-const topics = [
-    {name: "Cooking"},
-    {name: "Fitness"},
-    {name: "Sports"},
-    {name: "Knitting"},
-    {name: "Programming"}
 
-]
 
 const onChangeSearch = e => {
     setSearch(e.target.value);
@@ -29,7 +25,7 @@ const topicSearch = topics.filter(topic => {
       return topic;
     }
   }).map((topic) => (
-    <div className={classes.button} key={topic.id}>
+    <div className={classes.button} key={topic.topicId}>
       <button onClick={(e) => 
         {
             e.preventDefault();
@@ -47,7 +43,7 @@ return(
         <div className={classes.position}>
         <label>Select a topic to post to: </label>
         <div className={classes.search}>
-            <input type="text" placeholder={placeholder}  ref={inputRef} onChange={onChangeSearch} value={search}/>
+            <input type="text" placeholder={placeholder}  ref={inputRef} onChange={onChangeSearch} value={search} required/>
         </div>
             <div className={classes.dropdown}>
                 {topicSearch}
