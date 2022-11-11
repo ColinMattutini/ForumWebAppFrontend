@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CommentList from "./CommentList";
+import CreateComment from "./CreateComment";
 
 const Comment = (props) => {
 
@@ -45,9 +46,10 @@ const Comment = (props) => {
 
     return(
         <div>
+            <CreateComment postId = {props.postId}/>
             {/* commenter name */}
             {commentList}
-            <button onClick={fetchComments}>Fetch comments</button>
+            
         </div>
     )
 

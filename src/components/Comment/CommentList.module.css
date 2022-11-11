@@ -1,4 +1,9 @@
 .commentEdit{
     padding-left: 36px;
+    
+}
 
+.commentEdit p {
+    white-space: pre-wrap;
+    
 }
