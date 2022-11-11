@@ -4,8 +4,10 @@
     /* background-color: rgb(43, 142, 230); */
     padding: 0;
     padding-bottom: 24px;
-    
+    white-space: pre-wrap;
+
 }
+
 
 .buttonDisplay{
     display: flex;
