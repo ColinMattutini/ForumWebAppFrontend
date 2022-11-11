@@ -85,8 +85,9 @@ const Login = (props) => {
                 <label htmlFor='email'></label>
                 <input 
                 placeholder="Email"
-                    type='text'
+                    type='email'
                     ref={email}
+                    required
                     
                 />
                 <label htmlFor='password'></label>
@@ -94,6 +95,7 @@ const Login = (props) => {
                     placeholder="Password"
                     type='password'
                     ref={password}
+                    required
                 />                
                     <button>Login</button>
                 <p onClick={switchToSignup}>Don't have an account? Sign-up here!</p>
