@@ -11,16 +11,25 @@
 
 .postHeader{
     display: flex;
+    width: 100%;
     padding-bottom: 0;
     margin: 0;
     align-items: center;
     line-height: 34px;
     height: 35px;
+    font-size: large;
 }
 
-.postHeader p{
-    padding-left: 20px;
+.postHeader .spacing{
+    padding-right: 10%;
 }
+
+.postHeader .score{
+    margin-left: auto;
+    padding-right: 3%;
+}
+
+
 
 @media screen and (max-width: 540px) {
     .postHeader {

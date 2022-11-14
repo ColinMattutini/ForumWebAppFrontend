@@ -5,7 +5,8 @@
     width: 100%;
     height: 5rem;
     /* background-color: #f0efef; */
-    background-color: #E5EAF5;
+    /* background-color: #E5EAF5; */
+    background-image: (180deg, #b411e6, #6a2d72);
     color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
@@ -19,6 +20,10 @@
     display: flex;
     justify-content: space-between;
     gap: 4rem;
+  }
+
+  .header h1{
+    padding-right: 8%;
   }
 
 
@@ -48,8 +53,8 @@
     width: 100%;
     height: 4vh;
     cursor: pointer;
-    border: 1px solid #74a5d3;
-    background-color: #1037e7;
+    border: 1px solid #c55688;
+    background-color: #AE2D68;
     color: white;
     border-radius: 20px;
 }
@@ -60,8 +65,28 @@
   width: 90%;
   height: 4vh;
   cursor: pointer;
-  border: 1px solid #74a5d3;
-  background-color: #1037e7;
+  border: 1px solid #c55688;
+  background-color: #AE2D68;
   color: white;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 540px) {
+  .header{
+    padding: 0;
+  }
+
+  .buttonSignup{
+    width: 30%;
+    padding-left: 1px;
+  }
+
+  .buttonLogin{
+    width: 30%;
+  }
+
+  .header h1 {
+      display:none;
+      
+  }
 }

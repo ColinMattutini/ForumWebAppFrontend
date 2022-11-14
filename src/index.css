@@ -1,12 +1,15 @@
+
 * {
   box-sizing: border-box;
 }
+
 
 body {
   margin: 0;
   /* background-color: #c9f8fa; */
   /* background-color: #f1f1f1d2; */
   /* background-color: #d8e4e3; */
-  background-color: #D0BDF4;
+  /* background-color: #DAE0E6; */
+  background-image: linear-gradient(145deg,#6106f5, #c696ec);
   
 }
