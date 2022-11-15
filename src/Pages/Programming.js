@@ -1,10 +1,15 @@
+import { Fragment } from "react";
+import Header from "../components/Header/Header";
 import AllPosts from "../components/Post/AllPosts";
 
 
 const ProgrammingPage = () => {
 
     return(
-        <AllPosts topicName={"Programming"}/>
+        <Fragment>
+            <Header />
+            <AllPosts topicName={"Programming"}/>
+        </Fragment>
     )
 }
 
