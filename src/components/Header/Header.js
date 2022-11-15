@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../Context/userauth';
 import Login from '../../UserAuthentication/Login';
 import SignUpForm from '../../UserAuthentication/SignupForm.js';
+import SuccessModal from '../../UserAuthentication/SuccessModal';
 import SearchBar from '../SearchBar/SearchBar';
 import classes from './Header.module.css';
 
@@ -12,6 +13,7 @@ const Header = () => {
     const authCtx = useContext(AuthContext);
 
     const [showSignUp, setShowSignUp] = useState(false);
+    const [successModal, setSuccessModal] = useState(false);
 
     const showSignUpModalHandler = () => {
         setShowSignUp(true);
@@ -19,6 +21,10 @@ const Header = () => {
 
     const hideSignupModalHandler = () => {
         setShowSignUp(false);
+    }
+
+    const successModalHandler = () => {
+        successModal ? setSuccessModal(false): setSuccessModal(true);
     }
 
     const homepageNav = () => {
@@ -41,7 +47,8 @@ const Header = () => {
     return(
         <div>
             {authCtx.loginModal && <Login showSignUpModalHandler={showSignUpModalHandler}/>}
-            {showSignUp && <SignUpForm hideSignupModalHandler={hideSignupModalHandler} />}
+            {showSignUp && <SignUpForm hideSignupModalHandler={hideSignupModalHandler} successModalHandler={successModalHandler}/>}
+            {!successModal && <SuccessModal successModalHandler={successModalHandler}/>}
         <header className={classes.header}>
                 <h1 onClick={homepageNav}>Congathering</h1>                
                     <SearchBar />
