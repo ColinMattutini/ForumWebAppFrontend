@@ -1,0 +1,58 @@
+.deleteButton{
+    display: flex;
+    flex-direction: column;
+    float: right;
+
+}
+
+.confirmationButtons{
+    display: flex;
+    padding-top: 10%;
+    justify-content: center;
+    gap: 10%;
+    
+}
+
+.confirmationButtons .yes{
+    width: 40%;
+}
+
+.confirmationButtons .yes button{
+    background-color: #eb9484;
+    font-size: large;
+    width: 100%;
+    height: 4vh;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.confirmationButtons .yes button:hover{
+    background-color: #ec0b0b;
+    width: 100%;
+    height: 4vh;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.text h1{
+    text-align: center;
+}
+
+.inputBox input{
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    display: block;
+    margin: auto;
+
+}
+
+.inputBox label{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-left: 36%;
+    
+}
