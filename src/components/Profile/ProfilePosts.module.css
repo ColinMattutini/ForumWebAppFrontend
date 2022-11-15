@@ -1,0 +1,41 @@
+.cardEdit{
+    min-width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 50%;
+    padding-top: 10vh;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.deleteStateButton{
+    padding-bottom: 8px;
+}
+
+.deleteStateButton button{
+    height: 4vh;
+    width: 20%;
+    cursor: pointer;
+    border: 1px solid #c55688;
+    background-color: #AE2D68;
+    color: white;
+    border-radius: 20px;
+}
+
+.profilepage{
+    display:flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+
+@media screen and (max-width: 540px) {
+    .cardEdit {
+        min-width: 100%;
+        
+    }
+}
