@@ -4,12 +4,9 @@ import classes from "./Homepage.module.css";
 
 const Homepage = () => {
     return(
-        <Fragment>
-            
+        <Fragment>        
             <div className={classes.homepage}>
-            {/* <FavoriteTopics /> */}
-                    <AllPosts topicName={"all"}/>
-                
+                <AllPosts topicName={"all"}/>           
             </div>
         </Fragment>
     )

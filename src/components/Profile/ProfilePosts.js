@@ -28,11 +28,9 @@ const ProfilePosts = (props) => {
         try
             {
                 const response = await fetch (
-                    "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/posts",
+                    "https://hobby-forum.herokuapp.com/api/user/"+localStorage.getItem("email")+"/posts",
                 )
-            const data = await response.json();
-            console.log("User posts fetched!");
-            
+            const data = await response.json();            
             const postLoad = [];
             for(const postKey in data){
                 postLoad.push({
@@ -83,7 +81,7 @@ const ProfilePosts = (props) => {
 
     return(
         <Fragment>
-        <Header />
+        
         <div className={classes.profilepage}> 
         
             <div className={classes.cardEdit}> 

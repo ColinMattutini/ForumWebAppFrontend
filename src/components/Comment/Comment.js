@@ -23,9 +23,7 @@ const Comment = (props) => {
             })
         }
         setComment(loadedComments);
-        props.commentCounterHandler(loadedComments.length);
-        console.log(loadedComments.length);
-        
+        props.commentCounterHandler(loadedComments.length);        
     }
 
     const newComment = () => {
@@ -51,9 +49,7 @@ const Comment = (props) => {
     return(
         <div>
             <CreateComment postId = {props.postId} newComment={newComment}/>
-            {/* commenter name */}
             {commentList}
-            
         </div>
     )
 

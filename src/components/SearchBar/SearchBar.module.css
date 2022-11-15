@@ -21,6 +21,15 @@
 .position button{
     display:flex;
     min-width: 100%;
+    background-color: white;
+    font-size: large;
+}
+
+.position button:hover{
+    display:flex;
+    min-width: 100%;
+    background-color: blueviolet;
+    
 }
 
 .search {

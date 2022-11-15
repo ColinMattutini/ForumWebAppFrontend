@@ -11,6 +11,14 @@
     text-overflow: ellipsis;
     
 }
+
+.homepage{
+    display:flex;
+    width: 100%;
+    min-height: 100vh;
+    
+}
+
 .createPostButton{
     display: flex;
     flex-direction: column;
@@ -30,7 +38,7 @@
 
 .createPostButton button:hover,
 .createPostButton button:active{
-    background-color: #538df8;
+    background-color: #d379a1;
     border-color: #510674;
 }
 

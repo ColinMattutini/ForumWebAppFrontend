@@ -4,7 +4,6 @@
     padding-top: 8px;
 }
 
-
 .postDescription{
     display: flex;
     flex-direction: column;
@@ -12,8 +11,6 @@
 }
 
 .postDescription textarea{
-    
-    
     border-radius: 6px;
 }
 
@@ -30,14 +27,14 @@
 .submitButton button{
     height: 3vh;
     cursor: pointer;
-    border: 1px solid #74a5d3;
-    background-color: #1037e7;
+    border: 1px solid #c55688;
+    background-color: #AE2D68;
     color: white;
     border-radius: 20px;
 }
 
 .submitButton button:hover,
 .submitButton button:active{
-    background-color: #538df8;
-    border-color: #510674;
+    border: 1px solid #753d57;
+    background-color: #863c5e;
 }

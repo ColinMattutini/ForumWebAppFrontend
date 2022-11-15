@@ -3,7 +3,7 @@
 .postHeader{
     /* background-color: rgb(43, 142, 230); */
     padding: 0;
-    padding-bottom: 24px;
+    padding-bottom: 10px;
     white-space: pre-wrap;
     padding-left: 4%;
 }
@@ -19,6 +19,8 @@
 .footeralign{
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
+
 }
 
 .footeralign .scorealign{

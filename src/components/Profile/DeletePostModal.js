@@ -14,7 +14,7 @@ const DeletePostModal = (props) => {
 
     const fetchDeletePost = async () => {
         const response = await fetch(
-            "http://localhost:8080/api/user/"+localStorage.getItem("email")+"/posts/"+props.postId,
+            "https://hobby-forum.herokuapp.com/api/user/"+localStorage.getItem("email")+"/posts/"+props.postId,
             {
                 method:"PUT",
                 headers:{
@@ -23,7 +23,7 @@ const DeletePostModal = (props) => {
             }
         )
         if(response.ok){
-            console.log("post deleted successfully")
+            
         }
     }
 

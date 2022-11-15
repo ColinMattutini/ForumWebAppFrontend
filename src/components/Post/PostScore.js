@@ -55,7 +55,6 @@ const PostScore = (props) => {
     const getScores = () => {
         fetchPositiveScore();
         fetchNegativeScore();
-        console.log("fetching scores");
     }
 
     const positiveReviewPost = () => {
@@ -70,15 +69,15 @@ const PostScore = (props) => {
     }
 
     return(
-        <div >
+        <div>
         <div className={classes.format}>
            
             <div className={classes.score}>
                 <div className={classes.positivescore} onClick={positiveReviewPost}>
-                    {positiveScore} positive ↑
+                    {positiveScore} ↑
                 </div>
                 <div className={classes.negativescore} onClick={negativeReviewPost}>
-                    {negativeScore} negative ↓
+                    {negativeScore} ↓
                 </div>
             </div>
            

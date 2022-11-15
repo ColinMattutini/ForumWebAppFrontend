@@ -1,7 +1,6 @@
 import Modal from "../../../UI/Modal";
 import React, { useContext, useRef, useState } from "react";
 import classes from "./CreatePost.module.css"
-import SearchBar from "../../SearchBar/SearchBar";
 import TopicPostSearch from "./TopicPostSearch";
 import AuthContext from "../../../Context/userauth";
 
@@ -37,19 +36,11 @@ const CreatePost = (props) => {
         
     }
 
-    // const postTimeoutHandler = () => {
-    //     setTimeout(() => {
-    //         setTimeoutPost(false);
-           
-    //      }, 100000)
-    // }
-
     const submitPostHandler = (e) => {
         e.preventDefault();
         submitPostFetch(postNameRef.current.value, postDescriptionRef.current.value);
         authCtx.posttimeoutHandler();
-        console.log("timeout");
-        // props.hideCreatePostHandler();
+        props.hideCreatePostHandler();
     }
 
     return(
@@ -64,16 +55,9 @@ const CreatePost = (props) => {
                     <textarea cols="30" rows="10" placeholder="Post Description" ref={postDescriptionRef} required></textarea>
                 </div>
                 <TopicPostSearch topicChoiceHandler={topicChoiceHandler}/>
-                
-                
-                  
                 <div className={classes.submitButton}>
-                <button disabled={authCtx.postActionTimeout}>Submit</button> 
-                
-                    
-                
+                    <button disabled={authCtx.postActionTimeout}>Submit</button> 
                 </div>
-                
             </form>
         </Modal>
     )

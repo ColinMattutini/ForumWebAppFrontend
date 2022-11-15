@@ -3,11 +3,7 @@
 }
 
 .login{
-    /* background-color: #fafafa;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25); */
-    /* display: block; */
-    margin: auto;
-    
+    margin: auto; 
     padding: 1rem;
     width: 35rem;
     max-width:100%;
@@ -29,8 +25,7 @@
     display: block;
 }
 
-.signupControl input {
-    
+.signupControl input { 
     font: inherit;
     padding: 0.5rem;
     margin-bottom: 1.25rem;
@@ -39,10 +34,7 @@
     width: 20rem;
     display: block;
     margin: auto;
-    margin-bottom: 1.5rem;
-
-    /* max-width: 100%; */
-    
+    margin-bottom: 1.5rem;    
   }
 
 .signupControl button{

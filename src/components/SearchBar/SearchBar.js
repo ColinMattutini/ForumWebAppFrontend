@@ -26,7 +26,6 @@ const SearchBar = () => {
     }
     setTopics(loadedTopics);
     localStorage.setItem("Topics", JSON.stringify(loadedTopics));
-    console.log("Topics fetched");
     }
 
   const onChangeSearch = e => {
@@ -43,22 +42,22 @@ const SearchBar = () => {
     
   }, [])
 
-const topicSearch = topics.filter(topic => {
-    if (search === "") {
-      return "";
-    } else if (topic.name.toLowerCase().includes(search.toLowerCase())) {
-      return topic;
-    }
-  }).map((topic) => (
-    <div className={classes.button} key={topic.topicId}>
-      <button onClick={() => {navigate(inputRef.current.value = topic.name); setSearch("")}}>{topic.name}</button>
-    </div>
-  ));
+  const topicSearch = topics.filter(topic => {
+      if (search === "") {
+        return "";
+      } else if (topic.name.toLowerCase().includes(search.toLowerCase())) {
+        return topic;
+      }
+      }).map((topic) => (
+      <div className={classes.button} key={topic.topicId}>
+        <button onClick={() => {navigate("/"+(inputRef.current.value = topic.name)); setSearch("")}}>{topic.name}</button>
+      </div>
+      ));
 
  
 
 
-return(
+  return(
     <Fragment>
         <div className={classes.position}>
         <div className={classes.search}>
@@ -71,7 +70,7 @@ return(
             </Fragment>  
         
     
-    )
-}
+      )
+  }
 
 export default SearchBar;

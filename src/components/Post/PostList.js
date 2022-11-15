@@ -1,11 +1,13 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Card from '../../UI/Card';
+import DeletePostModal from '../Profile/DeletePostModal';
 import IndividualPost from './IndividualPost';
 import classes from "./PostList.module.css";
 
 const PostList = (props) => {
 
     const [showPostModal, setShowPostModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     const showPostModalHandler = () => {
         setShowPostModal(true);
@@ -13,6 +15,10 @@ const PostList = (props) => {
 
     const hidePostModalHandler = () => {
         setShowPostModal(false);
+    }
+
+    const deleteModalHandler = () => {
+        showDeleteModal ? setShowDeleteModal(false) : setShowDeleteModal(true);
     }
 
     useEffect(() => {
@@ -28,6 +34,10 @@ const PostList = (props) => {
                 postDescription = {props.postDescription}
                 postId = {props.postId}
             />}
+            {showDeleteModal && <DeletePostModal postId = {props.postId} deleteModalHandler={deleteModalHandler}/>}
+            <div className={classes.deleteButton}>
+            {props.deleteState && <button onClick={deleteModalHandler}>Delete</button>}
+            </div>
             <div className={classes.cardSpacing}>
                 <Card onClick={showPostModalHandler}>
                     <div className={classes.postHeader}>
@@ -36,12 +46,12 @@ const PostList = (props) => {
                         </div>
                             <p>Topic: {props.postTopic}</p>
                         <div className={classes.score}>
-                            <p>{props.postPositiveScore} spaceer {props.postNegativeScore}</p>
+                            <p>{props.postPositiveScore}↑ </p>
+                            <p>{props.postNegativeScore}↓</p>
                         </div>
                     </div>
                     <h1>{props.postName}</h1>
                     <h3>{props.postDescription}</h3>
-                    
                 </Card>
             </div>
         </Fragment>

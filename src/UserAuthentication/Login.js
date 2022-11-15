@@ -39,22 +39,13 @@ const Login = (props) => {
                       if(data && data.error && data.error.message){
                        errorMessage = data.error.message;
                     } 
-                    // alert(errorMessage);
                     throw new Error(errorMessage);
                     });
                   }
                 }).then(data => {
-                  console.log("Worked!");
-                  console.log(data);
-                //   authCtx.login(data.access_token, data.username);
                 localStorage.setItem("token", data.access_token);
                   localStorage.setItem("email", data.email);
-                 authCtx.login();
-                  
-                  //authCtx.id(data.username);
-                //   navigate('/homepage');
-                  
-                 
+                 authCtx.login();     
                 })
                   .catch(error => {
                       alert('Something went wrong');

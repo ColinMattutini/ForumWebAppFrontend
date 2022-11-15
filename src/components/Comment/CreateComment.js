@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import AuthContext from "../../Context/userauth";
 import classes from "./CreateComment.module.css";
 
@@ -33,10 +33,8 @@ const CreateComment = (props) => {
         if(commentText.current.value.replace(' ', '') !== ''){
             postCommentFetch(commentText.current.value);
         }
-        authCtx.commentTimeoutHandler();
-        
+        authCtx.commentTimeoutHandler();     
         formRef.current.reset();
-        console.log("Comment Timer");
     }
 
     return(

@@ -27,8 +27,6 @@ const IndividualPost = (props) => {
         document.addEventListener('keydown', handleEscapeKey)
         return () => document.removeEventListener('keydown', handleEscapeKey)
       }, [])
-    
-    
 
     return(
         
@@ -36,10 +34,10 @@ const IndividualPost = (props) => {
                 <div className={classes.buttonDisplay}>
                     <button onClick={props.hidePostModalHandler}>X</button>
                 </div>
-                <div className={classes.postHeader}>
-                    {/* Username of  poster */}
+                <div className={classes.postHeader}>                 
                     <h1>{props.postName}</h1>
                     <h3>{props.postDescription}</h3>
+                  
                     <div className={classes.footeralign}>
                       <div className={classes.commentcount}>
                       <h2>{commentCount} comments</h2>
@@ -47,9 +45,7 @@ const IndividualPost = (props) => {
                       <div className={classes.scorealign}>
                         <PostScore postId={props.postId}/>
                       </div>
-                    </div>
-                    
-                    
+                    </div>  
                 </div>
                 <hr></hr>
                 <div className={classes.nocommentalign}>

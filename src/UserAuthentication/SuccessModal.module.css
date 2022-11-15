@@ -1,0 +1,23 @@
+.centering{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.centering .buttonHolder{
+    width: 40%;
+}
+
+.centering button{
+    align-content: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 100%;
+    height: 4vh;
+    cursor: pointer;
+    border: 1px solid #c55688;
+    background-color: #AE2D68;
+    color: white;
+    border-radius: 20px;
+}

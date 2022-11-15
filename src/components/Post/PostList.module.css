@@ -26,10 +26,21 @@
 
 .postHeader .score{
     margin-left: auto;
+    display: flex;
     padding-right: 3%;
+    gap: 20px;
 }
 
 
+.deleteButton button{
+    height: 4vh;
+    width: 10%;
+    cursor: pointer;
+    border: 1px solid #c55688;
+    background-color: rgb(192, 13, 13);
+    color: white;
+    border-radius: 20px;
+}
 
 @media screen and (max-width: 540px) {
     .postHeader {

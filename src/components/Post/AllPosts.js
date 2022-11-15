@@ -1,7 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import AuthContext from "../../Context/userauth";
-import Login from "../../UserAuthentication/Login";
-
 import classes from './AllPosts.module.css';
 import CreatePost from "./CreatePost/CreatePost";
 import PostList from "./PostList";
@@ -35,11 +33,8 @@ const AllPosts = (props) => {
             {
                 const response = await fetch (
                 "https://hobby-forum.herokuapp.com/api/topic/"+props.topicName+"/posts",
-                
             )
-            const data = await response.json();
-            console.log("Topic posts fetched!");
-            
+            const data = await response.json();            
             const postLoad = [];
             for(const postKey in data){
                 postLoad.push({
@@ -85,15 +80,15 @@ const AllPosts = (props) => {
 
     return(
         <Fragment>
-        
-        {showCreatePostModal && <CreatePost hideCreatePostHandler={hideCreatePostHandler} newPostStateHandler={newPostStateHandler}/>}
-        <div className={classes.cardEdit}>
-        <div className={classes.createPostButton}>
-            <button onClick={showCreatePostHandler}>Create Post</button>
-        </div>
-                {postList}
-           
-        </div>
+            <div className={classes.homepage}>
+                    {showCreatePostModal && <CreatePost hideCreatePostHandler={hideCreatePostHandler} newPostStateHandler={newPostStateHandler}/>}
+                <div className={classes.cardEdit}>
+                <div className={classes.createPostButton}>
+                    <button onClick={showCreatePostHandler}>Create Post</button>
+                </div>
+                    {postList}    
+                </div>
+            </div>
         </Fragment>
     )
 }
