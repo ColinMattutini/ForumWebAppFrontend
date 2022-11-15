@@ -46,9 +46,9 @@ const Header = () => {
 
     return(
         <div>
-            {authCtx.loginModal && <Login showSignUpModalHandler={showSignUpModalHandler}/>}
-            {showSignUp && <SignUpForm hideSignupModalHandler={hideSignupModalHandler} successModalHandler={successModalHandler}/>}
-            {!successModal && <SuccessModal successModalHandler={successModalHandler}/>}
+                {authCtx.loginModal && <Login showSignUpModalHandler={showSignUpModalHandler}/>}
+                {showSignUp && <SignUpForm hideSignupModalHandler={hideSignupModalHandler} successModalHandler={successModalHandler}/>}
+                {successModal && <SuccessModal successModalHandler={successModalHandler}/>}
         <header className={classes.header}>
                 <h1 onClick={homepageNav}>Congathering</h1>                
                     <SearchBar />
