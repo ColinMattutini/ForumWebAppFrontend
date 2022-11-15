@@ -22,7 +22,16 @@ const Header = () => {
     }
 
     const homepageNav = () => {
-        navigate("");
+        navigate("/");
+    }
+
+    const profilePageNav = () => {
+        navigate("/Profile");
+    }
+
+    const logoutHandler = () => {
+        authCtx.logout();
+        navigate("/");
     }
 
     useEffect(() => {
@@ -31,20 +40,19 @@ const Header = () => {
 
     return(
         <div>
-        {authCtx.loginModal && <Login showSignUpModalHandler={showSignUpModalHandler}/>}
-        {showSignUp && <SignUpForm hideSignupModalHandler={hideSignupModalHandler} />}
+            {authCtx.loginModal && <Login showSignUpModalHandler={showSignUpModalHandler}/>}
+            {showSignUp && <SignUpForm hideSignupModalHandler={hideSignupModalHandler} />}
         <header className={classes.header}>
-                <h1 onClick={homepageNav}>Hobby Forum</h1>
-                
-                <SearchBar />
-                
-                
+                <h1 onClick={homepageNav}>Congathering</h1>                
+                    <SearchBar />
                     <div className={classes.buttonSignup}>
                         {!authCtx.isLoggedIn && <button onClick={showSignUpModalHandler}>Sign Up</button>}
+                        {authCtx.isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
                     </div>
                     <div className={classes.buttonLogin}>
                     {!authCtx.isLoggedIn && <button onClick={authCtx.showLoginModal}>Log in</button>}
-                {authCtx.isLoggedIn && <button onClick={authCtx.logout}>Logout</button>}
+                
+                    {authCtx.isLoggedIn && <button onClick={profilePageNav}>Profile</button>}
                 </div>
         </header>
         </div>
