@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 const AuthContext = React.createContext({ 
     isLoggedIn: false,
@@ -26,6 +26,7 @@ export const AuthContextProvider = (props) => {
     const logoutHandler = () => {        
         localStorage.clear();
         setIsLoggedIn(false);
+       
     };
 
     const loginHandler = () => {
@@ -45,7 +46,7 @@ export const AuthContextProvider = (props) => {
         setTimeout(() => {
            
             postSetActionTimeout(false);
-         }, 1000)
+         }, 30000)
     }
 
     const commentTimeoutHandler = () => {
@@ -53,7 +54,7 @@ export const AuthContextProvider = (props) => {
         setTimeout(() => {
            
             setCommentActionTimeout(false);
-         }, 5000)
+         }, 50000)
     }
 
     const contextValue = {
