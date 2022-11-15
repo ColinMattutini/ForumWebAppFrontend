@@ -28,7 +28,7 @@ const ProfilePosts = (props) => {
         try
             {
                 const response = await fetch (
-                    "https://hobby-forum.herokuapp.com/api/user/"+localStorage.getItem("email")+"/posts",
+                    "https://hobby-forum-app.herokuapp.com/api/user/"+localStorage.getItem("email")+"/posts",
                 )
             const data = await response.json();            
             const postLoad = [];

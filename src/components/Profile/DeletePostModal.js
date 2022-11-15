@@ -14,7 +14,7 @@ const DeletePostModal = (props) => {
 
     const fetchDeletePost = async () => {
         const response = await fetch(
-            "https://hobby-forum.herokuapp.com/api/user/"+localStorage.getItem("email")+"/posts/"+props.postId,
+            "https://hobby-forum-app.herokuapp.com/api/user/"+localStorage.getItem("email")+"/posts/"+props.postId,
             {
                 method:"PUT",
                 headers:{

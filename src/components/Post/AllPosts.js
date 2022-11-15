@@ -32,7 +32,7 @@ const AllPosts = (props) => {
         try
             {
                 const response = await fetch (
-                "https://hobby-forum.herokuapp.com/api/topic/"+props.topicName+"/posts",
+                "https://hobby-forum-app.herokuapp.com/api/topic/"+props.topicName+"/posts",
             )
             const data = await response.json();            
             const postLoad = [];
